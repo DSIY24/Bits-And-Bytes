@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/HavardCS50/subPageStyle.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+    <div class="sideBar">
+      <div class="header">
+        <h1>Harvard CS50</h1>
+        <h2>My introduction into Computer Science</h2>
+      </div>
+      <div>
+        <h2>Vanuja Ranawana</h2>
+        <h2><a href="/HavardCS50/Welcome.html">Welcome</a></h2>
+      </div>
+      <div class="dash"></div>
+      <div class="weeks">
+        <ul>
+          <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+          <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+          <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+          <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+          <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+          <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+        </ul>
+      </div>
+      <div class="dash"></div>
+      <div class="links">
+        <h2>
+          <a href="https://cs50.harvard.edu/x/2024/weeks/0/" target="_blank"
+            >Harvard CS50 offical webiste</a
+          >
+        </h2>
+        <h2>Links to social meida</h2>
+      </div>
+    </div>
+
+    <div class="page welcomePage">
+      <h1>Week 4</h1>
+      <div class="dash"></div>
+
+      <p>Within C, there are two powerful operators related to memory:</p>
+  
+      <p>The <code>&</code> operator provides the address of something stored in memory. For example:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      int n = 50;
+      printf("%p\n", &n);
+  }
+  </code></pre>
+  
+      <p>This prints out <code>0x7fffe004eabc</code>, which is the hexadecimal value for where in the computer's memory the variable <code>n</code> is stored. The <code>%p</code> is used to output the address, not the integer value of <code>n</code>.</p>
+  
+      <p>A pointer is a variable that contains the address of some value. We can create a pointer in C by:</p>
+      <pre><code>
+  int n = 50;
+  int *p = &n;
+  </code></pre>
+  
+      <p>We can then print out the value (which is now an address) stored in <code>p</code> using:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      int n = 50;
+      int *p = &n;
+      printf("%p\n", p);
+  }
+  </code></pre>
+  
+      <p>However, if we want to find the integer stored at address <code>p</code>, we can use the <code>*</code> operator:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      int n = 50;
+      int *p = &n;
+      printf("%i\n", *p);
+  }
+  </code></pre>
+  
+      <p>The <code>*</code> operator instructs the compiler to go to the location of memory where the variable is stored. In this case, it instructs the compiler to go to the address and print the integer stored within that address, which is 50.</p>
+  
+      <p>The syntax <code>int *p = &n</code> declares a pointer (variable <code>p</code>) that stores the address of the integer <code>n</code>, which is different from the <code>*</code> used to dereference an address.</p>
+  
+      <p>As we learned in week 2, strings are stored as an array of characters. But where are these characters stored in the computer’s memory? The characters within a string are stored next to each other. For example, the string <code>a = "HI!"</code>:</p>
+
+      <img src="Images/1.png" alt="">
+
+      <p>We can test this by writing the following program:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  
+  int main(void)
+  {
+      string s = "HI!";
+      printf("%p\n", &s);
+      printf("%p\n", &s[0]);
+      printf("%p\n", &s[1]);
+      printf("%p\n", &s[2]);
+      printf("%p\n", &s[3]);
+  }
+  </code></pre>
+  
+      <p>Also, since week 1, we have used the variable type <code>string</code> to define a list of characters. However, within C, the variable type <code>string</code> doesn’t exist. Instead, we rely on the CS50 library to provide us with the variable type <code>string</code>. All along, when we defined a variable as a string, we were actually defining a variable as a pointer that stored the address of the first character of the string.</p>
+
+        <img src="Images/2.png" alt="">
+
+      <p>Instead of writing:</p>
+      <pre><code>string s = "HI!";</code></pre>
+      <p>We can express it as:</p>
+      <pre><code>char *s = "HI!";</code></pre>
+  
+      <p>We can then write a program to print out the string <code>s</code> as:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      char *s = "HI!";
+      printf("%s\n", s);
+  }
+  </code></pre>
+  
+      <p>We do not write <code>*s</code> since <code>s</code> already contains the address of the first character of the string.</p>
+  
+      <p>Within the CS50 library, the way the <code>string</code> variable type is created is using structures:</p>
+      <pre><code>typedef char *string;</code></pre>
+  
+      <p>We also learned in week 2 how to print out individual characters within a string by treating it as if it were an array:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      char *s = "HI!";
+      printf("%c", s[0]);
+      printf("%c", s[1]);
+      printf("%c\n", s[2]);
+  }
+  </code></pre>
+  
+      <p>However, we can also perform the same function using pointer notation:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      char *s = "HI!";
+      printf("%c", *s);
+      printf("%c", *(s + 1));
+      printf("%c\n", *(s + 2));
+  }
+  </code></pre>
+  
+      <p>We learned in week 3 that we cannot use the <code>==</code> operator to compare strings as we do integers. This is because strings are, in fact, pointers; when comparisons are made between two strings, their addresses are compared, not the characters within them. Hence, we use the function <code>strcmp()</code>.</p>
+  
+      <p>Usually, if we have two different strings with different values, they will be stored in different locations. However, in the following program:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  #include <string.h>
+  #include <ctype.h>
+  
+  int main(void)
+  {
+      string s = get_string("s: ");
+      string t = s;
+      t[0] = toupper(t[0]);
+      printf("%s\n", s);
+      printf("%s\n", t);
+  }
+  </code></pre>
+  
+      <p>The strings <code>s</code> and <code>t</code> have the same address, so the output of the program will change both first characters of <code>t</code> and <code>s</code> to uppercase.</p>
+
+      <img src="Images/3.png" alt="">
+  
+      <p>To avoid this issue, we must include new functions from another library called <code><stdlib.h></code>.</p>
+  
+      <p>The first of these functions is <code>malloc</code>, which requests the computer to allocate a specific block of memory. In this case, we allocate the length of the string input plus one for the null character.</p>
+  
+      <p>We can then write a <code>for</code> loop to copy the array of characters from <code>s</code> to <code>t</code>, making sure to copy the null character as well:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  #include <string.h>
+  #include <ctype.h>
+  #include <stdlib.h>
+  
+  int main(void)
+  {
+      string s = get_string("s: ");
+      string t = malloc(strlen(s) + 1);
+      for (int i = 0, n = strlen(s); i <= n; i++)
+      {
+          t[i] = s[i];
+      }
+      t[0] = toupper(t[0]);
+      printf("%s\n", s);
+      printf("%s\n", t);
+  }
+  </code></pre>
+
+  <img src="Images/4.png" alt="">
+  
+      <p>With the help of <code>malloc</code>, which allocates a new chunk of memory, the string <code>t</code> points to another set of characters. <code>malloc</code> takes one input, the number of bytes needed, and returns the address of the first chunk of memory.</p>
+  
+      <p>We can also tidy up this program to include error checking. First, we ensure the length of <code>t</code> is not longer than one character before making the first character uppercase. We also ensure that if there is no more memory for <code>malloc</code> to allocate, the program ends. Additionally, we can replace the <code>for</code> loop with the function <code>strcpy()</code>:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  #include <string.h>
+  #include <ctype.h>
+  #include <stdlib.h>
+  
+  int main(void)
+  {
+      char *s = get_string("s: ");
+      if (s == NULL)
+      {
+          return 1;
+      }
+      char *t = malloc(strlen(s) + 1);
+      if (t == NULL)
+      {
+          return 1;
+      }
+      strcpy(t, s);
+      if (strlen(s) > 0)
+      {
+          t[0] = toupper(t[0]);
+      }
+      printf("%s\n", s);
+      printf("%s\n", t);
+      free(t);
+      return 0;
+  }
+  </code></pre>
+  
+      <p>The function <code>free</code> does the opposite of <code>malloc</code>; it frees up memory. It’s general practice to use <code>free</code> alongside <code>malloc</code> to avoid using too much memory.</p>
+  
+      <p><code>NULL</code>, which is what is returned when memory allocation fails, is the address 0.</p>
+  
+      <p>When you ask the compiler for a block of memory, there is no guarantee that the memory allocated hasn’t previously been used by the computer to store unrelated data. Hence, random values may appear when getting a block of memory and not assigning it a particular value.</p>
+  
+      <p>Pointers can also provide an alternative way to pass data between functions. Previously, when we passed a variable through a function, we were only passing a copy of that variable. However, using pointers allows us to pass the actual variable itself:</p>
+      <pre><code>#include <stdio.h>
+  
+  void swap(int a, int b);
+  
+  int main(void)
+  {
+      int x = 1;
+      int y = 2;
+      printf("x is %i, y is %i\n", x, y);
+      swap(x, y);
+      printf("x is %i, y is %i\n", x, y);
+  }
+  
+  void swap(int a, int b)
+  {
+      int tmp = a;
+      a = b;
+      b = tmp;
+  }
+  </code></pre>
+  
+      <p>However, if we include pointers within our code:</p>
+      <pre><code>#include <stdio.h>
+  
+  void swap(int *a, int *b);
+  
+  int main(void)
+  {
+      int x = 1;
+      int y = 2;
+      printf("x is %i, y is %i\n", x, y);
+      swap(&x, &y);
+      printf("x is %i, y is %i\n", x, y);
+  }
+  
+  void swap(int *a, int *b)
+  {
+      int tmp = *a;
+      *a = *b;
+      *b = tmp;
+  }
+  </code></pre>
+  
+      <p>Remember, <code>&</code> is used to provide the address of something stored in memory, while <code>*</code> instructs the compiler to go to a location in memory.</p>
+  
+      <p>Within C, we can ask for user input using the built-in function <code>scanf</code>. We can recreate the <code>get_int</code> function:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      int n;
+      printf("n: ");
+      scanf("%i", &n);
+      printf("n: %i\n", n);
+  }
+  </code></pre>
+  
+      <p>The function <code>scanf</code> takes two inputs: the first is the data type to be inputted, and the second is where the data input should be stored. Note that we have to use the <code>&</code> operator to provide the address of the original variable. If we had just typed <code>n</code>, we would be using a copy of <code>n</code>.</p>
+  
+      <p>Say if we now had to get a string, we could start by:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      char *s;
+      printf("s: ");
+      scanf("%s", s);
+      printf("n: %s\n", s);
+  }
+  </code></pre>
+  
+      <p>In this case, we wouldn’t use <code>&s</code> since <code>s</code> is already the address of the first character of the string. However, this code still wouldn’t work. This is because, when working with the <code>get_int</code> function, the compiler only needs to get 4 bytes from memory and allocate that to store the int, regardless of any garbage values. But when we declare <code>int *s</code>, which is a pointer, the compiler takes 8 bytes to allocate for the pointer <code>s</code>. However, within the <code>scanf</code> function, the compiler looks at the pointer <code>s</code>, which might have garbage values, and hence does not point to an exact address.</p>
+  
+      <p>Instead of using <code>free</code> and <code>malloc</code>, we could type:</p>
+      <pre><code>#include <stdio.h>
+  
+  int main(void)
+  {
+      char s[4];
+      printf("s: ");
+      scanf("%s", s);
+      printf("n: %s\n", s);
+  }
+  </code></pre>
+  
+      <p>In this case, our string can only be up to 4 bytes long, including the null character.</p>
+  
+      <p>We can also read and manipulate files within C. For example, we can create/open a spreadsheet called <code>phonebook</code> and ask the user to input a name and a number, saving these two variables within the spreadsheet:</p>
+      <pre><code>#include <cs50.h>
+  #include <stdio.h>
+  #include <string.h>
+  
+  int main(void)
+  {
+      FILE *file = fopen("phonebook.csv", "a");
+      char *name = get_string("name: ");
+      char *number = get_string("number: ");
+      fprintf(file, "%s,%s\n", name, number);
+      fclose(file);
+  }
+  </code></pre>
+  
+      <p>The function <code>fopen</code> takes two inputs: the first is the name of the file being opened/created, and the second is what to do with the file. <code>"r"</code> stands for read, <code>"w"</code> stands for write, but we want to append the file so that new data can be added repeatedly, hence we use <code>"a"</code>.</p>
+  
+      <p>We should also include a check to ensure that the file isn’t <code>NULL</code>:</p>
+      <pre><code>#include <cs50.h>
+  #include <stdio.h>
+  #include <string.h>
+  
+  int main(void)
+  {
+      FILE *file = fopen("phonebook.csv", "a");
+      if (file == NULL)
+      {
+          return 1;
+      }
+      char *name = get_string("name: ");
+      char *number = get_string("number: ");
+      fprintf(file, "%s,%s\n", name, number);
+      fclose(file);
+  }
+  </code></pre>
+  
+      <p>Using the read and write functions, we can also write a program that copies files:</p>
+      <pre><code>#include <stdio.h>
+  #include <stdint.h>
+  
+  typedef uint8_t BYTE;
+  
+  int main(int argc, char *argv[])
+  {
+      FILE *src = fopen(argv[1], "rb");
+      FILE *dst = fopen(argv[2], "wb");
+      BYTE b;
+  
+      while (fread(&b, sizeof(b), 1, src) != 0)
+      {
+          fwrite(&b, sizeof(b), 1, dst);
+      }
+      
+      fclose(dst);
+      fclose(src);
+  }
+  </code></pre>
+
+  
+
+  <div class="mobileSidebar" id="mobile-sidebar">
+    <div class="header">
+      <div>
+        <h1>Harvard CS50</h1>
+        <h2>My introduction into Computer Science</h2>
+      </div>
+      <button class="menuButton" id="menu-button">Menu</button>
+    </div>
+
+    <div class="weeks">
+      <div class="dash"></div>
+      <h3></h3>
+      <ul>
+        <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+        <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+        <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+        <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+        <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+        <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+      </ul>
+
+      <ul>
+        <li>Harvard CS50 offical website</li>
+      </ul>
+    </div>
+
+
+  
+    <script src="/HavardCS50/script.js"></script>
+  </body>
+</html>

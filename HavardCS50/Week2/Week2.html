@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/HavardCS50/subPageStyle.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+    <div class="sideBar">
+      <div class="header">
+        <h1>Harvard CS50</h1>
+        <h2>My introduction into Computer Science</h2>
+      </div>
+      <div>
+        <h2>Vanuja Ranawana</h2>
+        <h2><a href="/HavardCS50/Welcome.html">Welcome</a></h2>
+      </div>
+      <div class="dash"></div>
+      <div class="weeks">
+        <ul>
+          <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+          <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+          <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+          <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+          <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+          <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+        </ul>
+      </div>
+      <div class="dash"></div>
+      <div class="links">
+        <h2>
+          <a href="https://cs50.harvard.edu/x/2024/weeks/0/" target="_blank"
+            >Harvard CS50 offical webiste</a
+          >
+        </h2>
+        <h2>Links to social meida</h2>
+      </div>
+    </div>
+
+    <div class="page welcomePage">
+      <h1>Week 2</h1>
+      <div class="dash"></div>
+      <p>The <code>make</code> command, used to convert source code into machine code, is not a compiler by itself. It is a program that runs a compiler.</p>
+
+      <p>The compiler being used is <code>clang</code>.</p>
+  
+      <p>If we use <code>clang</code> directly to compile a C program, it will by default output a file named <code>a.out</code>. To change the name of the output file, we use the <code>-o</code> option along with the desired name. Example:</p>
+      <pre><code>clang -o hello hello.c
+  </code></pre>
+  
+      <p>When using an external library, we need to reference that library to avoid errors. Example:</p>
+      <pre><code>clang -o hello hello.c -lcs50
+  </code></pre>
+  
+      <p>Compiling is only one of four steps involved in converting source code to machine code. The steps are:</p>
+      <ul>
+          <li>Preprocessing</li>
+          <li>Compiling</li>
+          <li>Assembling</li>
+          <li>Linking</li>
+      </ul>
+  
+      <p>First, preprocessing occurs where header files in the code are copied and pasted into the program. Second, compiling converts the code into assembly code. Third, assembling converts the assembly code into machine code. Finally, linking combines the code from the included libraries with our code to produce a final executable file.</p>
+  
+      <p>Arrays are a method of storing data consecutively in memory for easy access. Example:</p>
+      <pre><code>int scores[3];
+  
+  scores[0] = 72;
+  scores[1] = 73;
+  scores[2] = 53;
+  </code></pre>
+  
+      <p>To refer to any item in the array, such as the first score, we use:</p>
+      <pre><code>scores[0]
+  </code></pre>
+  
+      <p>We can also use a loop to initialize values for an array:</p>
+      <pre><code>int scores[3];
+  
+  for (int i = 0; i < 3; i++)
+  {
+      scores[i] = get_int("Score: ");
+  }
+  </code></pre>
+  
+      <p>When mentioning an array in a function parameter, we can specify the type of variable stored along with <code>array[]</code>. Example:</p>
+      <pre><code>float average(int length, int array[])
+  {
+      int sum = 0;
+  
+      for (int i = 0; i < length; i++)
+      {
+          sum += array[i];
+      }
+  
+      return sum / (float)length;
+  }
+  </code></pre>
+  
+      <p>Strings are an example of an array; they store a sequence of <code>char</code> values together. The last item stored in a string array is <code>\0</code>, which indicates the end of the string.</p>
+  
+      <p>We can count the length of a string by:</p>
+      <pre><code>string name = get_string("Name: ");
+  int n = 0;
+  
+  while (name[n] != '\0')
+  {
+      n++;
+  }
+  </code></pre>
+  
+      <p>Alternatively, we can use the C library <code>#include <string.h></code> which includes the <code>strlen</code> function:</p>
+      <pre><code>int stringLength(string s)
+  {
+      int n = 0;
+      while (s[n] != '\0')
+      {
+          n++;
+      }
+      return n;
+  }
+  </code></pre>
+  
+      <p>Using <code>strlen</code> from the library is more efficient than counting manually. Example of printing a string input:</p>
+      <pre><code>#include <cs50.h>
+  #include <stdio.h>
+  #include <string.h>
+  
+  int main(void)
+  {
+      string s = get_string("Input: ");
+      printf("Output: ");
+      for (int i = 0; i < strlen(s); i++)
+      {
+          printf("%c", s[i]);
+      }
+      printf("\n");
+  }
+  </code></pre>
+  
+      <p>However, calling <code>strlen</code> multiple times within a loop can reduce efficiency. Instead, store the length in a separate variable:</p>
+      <pre><code>int length = strlen(s);
+  
+  for (int i = 0; i < length; i++)
+  {
+      printf("%c", s[i]);
+  }
+  </code></pre>
+  
+      <p>We can also initialize another function within the loop:</p>
+      <pre><code>for (int i = 0, n = strlen(s); i < n; i++)
+  {
+      printf("%c", s[i]);
+  }
+  </code></pre>
+  
+      <p>To convert a string to uppercase, we can use a loop:</p>
+      <pre><code>#include <cs50.h>
+  #include <stdio.h>
+  #include <string.h>
+  
+  int main(void)
+  {
+      string s = get_string("Input: ");
+      printf("Output: ");
+      for (int i = 0, n = strlen(s); i < n; i++)
+      {
+          if (s[i] >= 'a' && s[i] <= 'z')
+          {
+              printf("%c", s[i] - 32);
+          }
+          else
+          {
+              printf("%c", s[i]);
+          }
+      }
+      printf("\n");
+  }
+  </code></pre>
+  
+      <p>Alternatively, use the <code>toupper</code> function from the C library to convert lowercase characters to uppercase:</p>
+      <pre><code>#include <cs50.h>
+  #include <stdio.h>
+  #include <string.h>
+  #include <ctype.h>
+  
+  int main(void)
+  {
+      string s = get_string("Input: ");
+      printf("Output: ");
+      for (int i = 0; i < strlen(s); i++)
+      {
+          printf("%c", toupper(s[i]));
+      }
+      printf("\n");
+  }
+  </code></pre>
+  
+      <p>To make a program accept command-line arguments, use <code>int argc, string argv[]</code> instead of <code>int main(void)</code>:</p>
+      <pre><code>int main(int argc, string argv[])
+  {
+      // ...
+  }
+  </code></pre>
+  
+      <p>An example of a program that prints out user input from command-line arguments:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  #include <string.h>
+  
+  int main(int argc, string argv[])
+  {
+      printf("%s\n", argv[1]);
+  }
+  </code></pre>
+  
+      <p>Here, <code>argv[1]</code> is the first string input by the user. <code>argv[0]</code> outputs the name of the file, while <code>argv[2]</code> would be the second string inputted.</p>
+  
+      <p><code>argc</code> represents the number of arguments passed at the CLI. For example, <code>./greet Vanuja</code> has 2 arguments, so <code>argc == 2</code>.</p>
+  
+      <p>To require exactly 2 arguments in the program, write:</p>
+      <pre><code>int main(int argc, string argv[])
+  {
+      if (argc == 2)
+      {
+          printf("%s\n", argv[1]);
+      }
+      else
+      {
+          printf("Error: Enter 2 arguments\n");
+      }
+  }
+  </code></pre>
+  
+      <p><strong>Cryptography</strong> is the art of encoding and decoding messages. To encrypt a message, the cipher requires an input of the plaintext being encrypted and the key.</p>
+
+      <div class="mobileSidebar" id="mobile-sidebar">
+        <div class="header">
+          <div>
+            <h1>Harvard CS50</h1>
+            <h2>My introduction into Computer Science</h2>
+          </div>
+          <button class="menuButton" id="menu-button">Menu</button>
+        </div>
+  
+        <div class="weeks">
+          <div class="dash"></div>
+          <h3></h3>
+          <ul>
+            <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+            <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+            <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+            <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+            <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+            <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+          </ul>
+  
+          <ul>
+            <li>Harvard CS50 offical website</li>
+          </ul>
+        </div>
+  
+    <script src="/HavardCS50/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="subPageStyle.css" />
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+
+    <div class="sideBar">
+      <div class="header">
+        <img src="Images/elegoo logo.png" alt="" />
+        <h2>Elegoo Super Starter Kit For Uno</h2>
+      </div>
+      <div>
+        <h2>Vanuja Ranawana</h2>
+        <h2><a href="Setup.html">Setup</a></h2>
+      </div>
+      <div class="dash"></div>
+      <div class="weeks">
+        <ul>
+          <li><a href="Lesson2.html">Lesson 2 Blink</a></li>
+          <li><a href="Lesson3.html">Lesson 3 LED</a></li>
+          <li><a href="">Lesson 4</a></li>
+        </ul>
+      </div>
+      <div class="dash"></div>
+      <div class="links">
+        <h2>
+          <a href="https://cs50.harvard.edu/x/2024/weeks/0/" target="_blank"
+            >Elegoo Offical Website</a
+          >
+        </h2>
+        <h2>Links to the Super Starter Kit PDF</h2>
+      </div>
+    </div>
+
+    <div class="page welcomePage">
+
+        <h1 class="page-title">Lesson 2 LED</h1>
+        <div class="dash"></div>
+
+        <p>In this lesson you will learn what a breadboard is, how to construct a simple LED circuit on a breadboard, and how to adjust the brightness of the LEDs using different resistors to vary the resistance of the circuit.</p>
+    
+        <p>Since LEDs are Light Emitting Diodes, with emphasis on the diode term, we need a way of knowing which lead of the LED is positive or negative. Thankfully, there are two ways of doing so:</p>
+        <ul>
+            <li>First is looking at the length of the LED's leads. The longer one is positive and the shorter one is negative.</li>
+
+            <img src="Images/Lesson 3 LED/LED short and long lead.png" alt="">
+
+            <li>We could also look around the casing of the LED and feel for a flat edge; this indicates the negative side of the LED.</li>
+            <img src="Images/Lesson 3 LED/LED flat caseing.png" alt="">
+        </ul>
+    
+        <p>Before we actually start constructing the circuit, it’s better to draw a schematic or a circuit diagram to illustrate how the circuit will look. If you have taken physics in high school, a diagram like this will be familiar to you.</p>
+
+        <img src="Images/Lesson 3 LED/LED circut diagram.png" alt="">
+
+        <p>And here is the schematic included within the Elegoo Super Start Kit PDF</p>
+
+        <img src="Images/Lesson 3 LED/LED circut schematic.png" alt="">
+    
+        <p>Our goal with this lesson is to transfer this 2D diagram and replicate it using our breadboard, Arduino, wires, resistor, and LED.</p>
+    
+        <p>First, we can take out the set of resistors from the kit placed within a zip-lock bag in the kit box. They will be grouped according to their resistance, which will be written at the bottom</p>
+
+        <img src="Images/Lesson 3 LED/Resister Marking.jpeg" alt="">
+
+        <p>For this lesson you will need to use the 220, 1k and 10k ohm resister. For now chose of of the 3 resisters</p>
+
+        <p>You will also need to open the packet containing the LEDs and grab two wires from the zip-locked bundle of wires.</p>
+    
+        <p>We can start by connecting one of the wires to the 5V pin , this will act as our positive cell terminal.</p>
+        <img src="Images/Lesson 3 LED/1.jpeg" alt="">
+    
+        <p>Then you should connect one leg of the resistor along the same row as the positive pin.</p>
+        <img src="Images/Lesson 3 LED/2.jpeg" alt="">
+    
+        <p>Next, connect the second leg of the resistor to another column and connect the leg along the same column. As previously mentioned, LEDs are diodes; hence we need to connect the positive end to the second leg of the resistor and attach the negative end to another column.</p>
+        <img src="Images/Lesson 3 LED/3.jpeg" alt="">
+    
+        <p>To complete the circuit, connect the remaining wire to the GND (Ground) pin on the Arduino board and then connect the other end along the same column as the negative lead of the LED.</p>
+        <img src="Images/Lesson 3 LED/4.jpeg" alt="">
+        <img src="Images/Lesson 3 LED/5.jpeg" alt="">
+
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

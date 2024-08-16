@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/HavardCS50/subPageStyle.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+   
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+    <div class="sideBar">
+      <div class="header">
+        <h1>Harvard CS50</h1>
+        <h2>My introduction into Computer Science</h2>
+      </div>
+      <div>
+        <h2>Vanuja Ranawana</h2>
+        <h2><a href="/HavardCS50/Welcome.html">Welcome</a></h2>
+      </div>
+      <div class="dash"></div>
+      <div class="weeks">
+        <ul>
+          <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+          <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+          <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+          <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+          <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+          <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+        </ul>
+      </div>
+      <div class="dash"></div>
+      <div class="links">
+        <h2>
+          <a href="https://cs50.harvard.edu/x/2024/weeks/0/" target="_blank"
+            >Harvard CS50 offical webiste</a
+          >
+        </h2>
+        <h2>Links to social meida</h2>
+      </div>
+    </div>
+
+    <div class="page welcomePage">
+      <h1>Week 1</h1>
+      <div class="dash"></div>
+      <!--
+      <p>
+        A compiler is a program that converts one language into another, most
+        often used in the context of source to machine code.
+      </p>
+      <p>
+        The CLI in vs code is the terminal where commands can be typed to do
+        certain functions in VS code without the use of a mouse or GUI
+      </p>
+      <p>Some examples of code used in the terminal includes :</p>
+      <ul>
+        <li>Code hello.c (opens or creates a new file named code)</li>
+        <li>
+          Make hello (acts as a compiler that converts the source code within
+          hello into machine code)
+        </li>
+        <li>./hello (runs the machine code file called hello)</li>
+        <li>clear (clears all the code present in the terminal)</li>
+        <li>cd (Used to change the current directory / folder)</li>
+        <li>ls (Lists the files within a directory)</li>
+        <li>cp (Copying files within a directory)</li>
+        <li>mkdir (Making a new directory)</li>
+        <li>mv (moving (changing the name of) files or directories)</li>
+        <li>rm (removing file)</li>
+        <li>rmdir (removing directories)</li>
+      </ul>
+
+      <img src="Week1Images/1.png" alt="" />
+
+      <p>
+        #include &lt;stdio.h&gt; is a command that tells the compiler that the
+        library &lt;stdio.h&gt; should be used which is a header file allowing
+        us to use the printf function along with other things.
+      </p>
+    </div>
+    -->
+    <p>A <code>compiler</code> is a program that converts one language into another, most often used in the context of source to machine code.</p>
+
+    <p>The CLI in VS Code is the terminal where commands can be typed to perform certain functions in VS Code without the use of a mouse or GUI.</p>
+
+    <p>Some examples of commands used in the terminal include:</p>
+    <ul>
+        <li><code>code hello.c</code> (opens or creates a new file named hello.c)</li>
+        <li><code>make hello</code> (acts as a compiler that converts the source code within hello.c into machine code)</li>
+        <li><code>./hello</code> (runs the machine code file called hello)</li>
+        <li><code>clear</code> (clears all the code present in the terminal)</li>
+        <li><code>cd</code> (changes the current directory/folder)</li>
+        <li><code>ls</code> (lists the files within a directory)</li>
+        <li><code>cp</code> (copies files within a directory)</li>
+        <li><code>mkdir</code> (creates a new directory)</li>
+        <li><code>mv</code> (moves or renames files or directories)</li>
+        <li><code>rm</code> (removes a file)</li>
+        <li><code>rmdir</code> (removes a directory)</li>
+    </ul>
+
+    <p>Example of C code:</p>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    printf("hello, world\n");
+}
+</code></pre>
+
+    <p><code>#include &lt;stdio.h&gt;</code> is a command that tells the compiler that the library <code>&lt;stdio.h&gt;</code> should be used, which is a header file allowing us to use the <code>printf</code> function along with other things.</p>
+
+    <p><code>printf</code> is an example of a function; functions take in arguments and return values. In this case, it displays <code>'hello, world'</code> on the terminal.</p>
+
+    <p><code>\n</code> creates a new line after <code>hello, world</code>.</p>
+
+    <p>Another example of a function in C is <code>get_string</code>, which is defined in the <code>&lt;cs50.h&gt;</code> library:</p>
+    <pre><code>get_string("What's your name? ");
+</code></pre>
+
+    <p>This prompts the user <code>"What's your name?"</code>. To save the user's answer within a variable, we need to assign the function to a variable and define the type of variable from right to left:</p>
+    <pre><code>string answer = get_string("What's your name? ");
+</code></pre>
+
+    <p>Other examples of types of variables include:</p>
+    <ul>
+        <li><code>int</code> (used for storing integers)</li>
+        <li><code>char</code> (for storing a single character/letter)</li>
+    </ul>
+
+    <p>Adding <code>const</code> before declaring a variable means that the value within the variable cannot be reassigned.</p>
+
+    <p>Examples of functions used along with their types of data include:</p>
+    <ul>
+        <li><code>get_int</code></li>
+        <li><code>get_char</code></li>
+        <li><code>get_float</code></li>
+        <li><code>get_double</code></li>
+        <li><code>get_long</code></li>
+    </ul>
+
+    <p>Once we have stored data within a variable, we can display/use that data within a function using <code>%s</code> as a placeholder:</p>
+    <pre><code>printf("Hello, %s\n", answer);
+</code></pre>
+
+    <p>Examples of corresponding placeholders used to include a type of variable within a function include:</p>
+    <ul>
+        <li><code>%i</code> (for integers)</li>
+        <li><code>%c</code> (for characters)</li>
+        <li><code>%f</code> (for floating-point numbers)</li>
+        <li><code>%d</code> (for integers)</li>
+        <li><code>%li</code> (for long integers)</li>
+    </ul>
+
+    <p>Conditionals are expressions that evaluate to either true or false. In C, an example of a conditional is an <code>if</code> statement:</p>
+    <pre><code>if (x > y)
+{
+    printf("x is greater than y\n");
+}
+else if (x < y)
+{
+    printf("y is greater than x\n");
+}
+else
+{
+    printf("x and y are equal\n");
+}
+</code></pre>
+
+    <p>Within a function, we can use operators to compare variables/data:</p>
+    <ul>
+        <li><code>||</code> (represents OR)</li>
+        <li><code>&&</code> (represents AND)</li>
+    </ul>
+
+    <p>Loops are sequences of instructions that are repeated until a given condition is met. The different types of loops in C include:</p>
+    <ul>
+        <li><code>while</code> loop (repeats the instructions while the condition is true)</li>
+        <li><code>for</code> loop (repeats the instructions for a certain number of iterations)</li>
+        <li><code>do while</code> loop</li>
+    </ul>
+
+    <p>Example of a <code>while</code> loop:</p>
+    <pre><code>int i = 0;
+
+while (i < 3)
+{
+    printf("Meow\n");
+    i++;
+}
+</code></pre>
+
+    <p>Example of a <code>for</code> loop:</p>
+    <pre><code>for (int i = 0; i < 3; i++)
+{
+    printf("Meow\n");
+}
+</code></pre>
+
+    <p>There are 3 sections within the <code>for</code> loop:</p>
+    <ul>
+        <li>The definition of a variable</li>
+        <li>The condition set for the variable</li>
+        <li>Incrementing the variable</li>
+    </ul>
+
+    <p>We can create a function by first defining its name, the parameters it takes, and writing the instructions within the function. Example:</p>
+    <pre><code>void meow(void)
+{
+    printf("Meow\n");
+}
+</code></pre>
+
+    <p>The function must be defined before it is called, or we can copy the function's prototype (in this case, <code>void meow(void)</code>) and paste it above <code>int main(void)</code>.</p>
+
+    <p>If we want the function to take in a value, we can define it within the function instead of using <code>void</code>. Example:</p>
+    <pre><code>void meow(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("Meow\n");
+    }
+}
+</code></pre>
+
+    <p>To use the function, we type:</p>
+    <pre><code>meow(3);
+</code></pre>
+
+    <p>This causes the program to print <code>Meow</code> 3 times.</p>
+
+    <p>If the function returns an integer, the function must be defined with <code>int</code>. Example:</p>
+    <pre><code>int add(int a, int b)
+{
+    return a + b;
+}
+</code></pre>
+
+    <p><code>void</code> represents a function with no return value, while it can be replaced by the return data type if the function does have a return value.</p>
+
+    <p>A <code>do while</code> loop is another example of a loop in C:</p>
+    <pre><code>int n;
+
+do
+{
+    n = get_int("Enter number: ");
+}
+while (n < 1);
+</code></pre>
+
+    <p>Note: The code above is incorrect. We cannot refer to the variable <code>n</code> as a string inside the curly brackets due to scope. Hence, we also have to declare it above the <code>do while</code> loop:</p>
+    <pre><code>int n;
+
+do
+{
+    n = get_int("Enter number: ");
+}
+while (n < 1);
+</code></pre>
+
+    <p>A comment in C can be made by typing <code>//</code>.</p>
+
+    <div class="mobileSidebar" id="mobile-sidebar">
+      <div class="header">
+        <div>
+          <h1>Harvard CS50</h1>
+          <h2>My introduction into Computer Science</h2>
+        </div>
+        <button class="menuButton" id="menu-button">Menu</button>
+      </div>
+
+      <div class="weeks">
+        <div class="dash"></div>
+        <h3></h3>
+        <ul>
+          <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+          <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+          <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+          <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+          <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+          <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+        </ul>
+
+        <ul>
+          <li>Harvard CS50 offical website</li>
+        </ul>
+      </div>
+
+    <script src="/HavardCS50/script.js"></script>
+  </body>
+</html>

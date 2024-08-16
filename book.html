@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Little Book Blog</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #f0f0f0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .title {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      .search-bar {
+        margin-bottom: 20px;
+      }
+      .search-bar input {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+        font-size: 1em;
+      }
+      .book {
+        display: inline-block;
+        margin: 20px;
+        text-align: left;
+      }
+      .book img {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+      }
+      .book-name {
+        margin-top: 10px;
+        font-size: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Little Book Blog</div>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for a book..."
+          onkeyup="searchBooks()"
+        />
+      </div>
+      <div id="bookList">
+        <!-- Book 1 -->
+        <div class="book" data-name="12 Rules For Life Jordan Peterson">
+          <img
+            src="https://cdn.waterstones.com/bookjackets/large/9780/1419/9780141988511.jpg"
+            alt="Book Cover 1"
+          />
+          <div class="book-name">12 Rules For Life</div>
+        </div>
+        <!-- Book 2 -->
+        <div class="book" data-name="Atomic Habits James Clear">
+          <img
+            src="https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UF1000,1000_QL80_.jpg"
+            alt="Book Cover 2"
+          />
+          <div class="book-name">Atomic Habits</div>
+        </div>
+        <!-- Book 3 -->
+        <div class="book" data-name="The Psychology Of Money Morgan Housel">
+          <img
+            src="https://m.media-amazon.com/images/I/71aG0m9XRcL._AC_UF894,1000_QL80_.jpg"
+            alt="Book Cover 3"
+          />
+          <div class="book-name">The Psychology Of Money</div>
+        </div>
+        <!-- Add more books as needed -->
+
+    </div>
+
+    <script>
+      function searchBooks() {
+        var input, filter, books, book, name, i;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        books = document.getElementById("bookList");
+        book = books.getElementsByClassName("book");
+
+        for (i = 0; i < book.length; i++) {
+          name = book[i].getAttribute("data-name");
+          if (name.toUpperCase().indexOf(filter) > -1) {
+            book[i].style.display = "";
+          } else {
+            book[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

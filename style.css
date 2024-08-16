@@ -1,0 +1,353 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+:root {
+  --Background-Color: #388087;
+  --Background-Accent-Color: #6fb3b8;
+  --Block-Color: #f6f6f2;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+h1 {
+  font-size: 3.4rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.9rem;
+}
+h4 {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 1.1rem;
+}
+
+div.something {
+  width: 15vw;
+  height: 5vh;
+  background-color: blue;
+  padding: 0rem 2rem 0rem 2rem;
+  position: fixed;
+  z-index: 100;
+  bottom: 0px;
+  left: 2vw;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+div.mainPage {
+  padding: 2rem 6vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vw;
+  background-color: var(--Background-Color);
+}
+/*code to formate the nav bar */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header div.subpages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10vw;
+}
+header li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  width: 140px;
+  height: 40px;
+  background: #f6f6f2;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
+}
+header div.hamburgerMenu {
+  cursor: pointer;
+}
+div.logo img {
+  width: 10vw;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+}
+header .dropdown-menu li {
+  width: 100%;
+  height: 50px;
+}
+header .dropdown-menu li a {
+  text-decoration: none;
+  color: black;
+}
+header .dropdown-menu li a:hover {
+  color: var(--Background-Accent-Color);
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  width: 200px;
+  z-index: 100;
+}
+.dropdown-menu.articles {
+  left: 55vw;
+  transform: translateX(-100px);
+  top: 80px;
+}
+.dropdown-menu.projects {
+  left: 72vw;
+  transform: translateX(-100px);
+  top: 80px;
+}
+.dropdown-menu.active {
+  display: block;
+  position: absolute;
+}
+
+/* The off screen menu which slides in once the hamburger menu is toggled */
+.offScreenMenu {
+  padding: 4rem 15vw;
+  background-color: brown;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: 0.3s ease;
+}
+.offScreenMenu ul li {
+  list-style-type: none;
+  text-align: right;
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+.offScreenMenu.active {
+  transform: translateX(0%);
+}
+div.closeMenu {
+  position: fixed;
+  top: 2.5rem;
+  right: 6vw;
+  display: none;
+  cursor: pointer;
+}
+div.closeMenu.active {
+  display: flex;
+  z-index: 1000;
+}
+/*code to formate the first section of the website */
+div.block {
+  background: var(--Block-Color);
+  width: 100%;
+  height: 38vw;
+  display: flex;
+  padding: 8vw;
+  align-items: center;
+  justify-content: center;
+  column-gap: 3vw;
+  border-radius: 15px;
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.3);
+}
+div.block .text {
+  width: 60%;
+}
+div.block .text h1 {
+  margin-bottom: 1vw;
+}
+div.block .text h4 {
+  font-weight: 200;
+}
+div.block .image {
+  width: 50%;
+  height: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(Images/Arduino\ Uno.png);
+  background-size: cover;
+  background-position: center;
+}
+
+/*code to formate the list of progects and blog posts */
+div.split {
+  height: 100vh;
+  display: flex;
+  column-gap: 2.5vw;
+}
+div.blockA {
+  background: var(--Block-Color);
+  width: 40%;
+  border-radius: 15px;
+  padding: 2em;
+  overflow-y: scroll;
+  border-radius: 15px;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+}
+div.blockA .articleContainer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+div.listOfBlogPosts h2,
+div.blockA h2 {
+  margin-bottom: 1em;
+  text-align: center;
+}
+div.blockA div.blogPost {
+  padding: 1vw;
+  height: 10vw;
+  width: 100%;
+  display: flex;
+  column-gap: 1em;
+  margin-bottom: 2em;
+}
+div.blockA div.blogPostText {
+  padding: 0;
+}
+div.blockA h3 {
+  font-size: 1.3rem;
+}
+div.blockA p {
+  font-size: 0.9rem;
+}
+div.listOfBlogPosts {
+  background: var(--Block-Color);
+  width: 60%;
+  padding: 2em;
+  overflow-y: scroll;
+  border-radius: 15px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+div.listOfBlogPosts a {
+  text-decoration: none;
+  color: black;
+}
+div.blogPost {
+  padding: 1vw;
+  height: 12vw;
+  width: 100%;
+  background-color: var(--Background-Accent-Color);
+  display: flex;
+  column-gap: 1em;
+  margin-bottom: 2em;
+  cursor: pointer;
+}
+div.blogPostImage {
+  width: 100%;
+  height: 100%;
+}
+div.blogPostText {
+  width: 80vw;
+  height: 100%;
+  background-color: var(--Block-Color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2vw;
+  text-align: center;
+}
+
+/* Changes made when the width of the screen reaches below or at 1000px */
+@media (max-width: 1300px) {
+  header div.subpages {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10vw;
+  }
+  div.listOfBlogPosts {
+    width: 60%;
+    padding: 1rem;
+    overflow-y: scroll;
+  }
+
+  h1 {
+    font-size: 2.7rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+  div.blockA h3 {
+    font-size: 0.8rem;
+  }
+  div.blockA p {
+    font-size: 0.6rem;
+  }
+}
+
+/* Changes made when the width of the screen reaches below or at 500px */
+@media (max-width: 500px) {
+  div.block {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10vw;
+    gap: 2vw;
+  }
+  div.block .text {
+    width: 100%;
+    text-align: center;
+  }
+  div.block .image {
+    width: 100%;
+  }
+  div.block .text h1 {
+    margin-bottom: 2.2vh;
+  }
+
+  div.split {
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 2.5vw;
+  }
+  div.blockA {
+    width: 100%;
+    height: 150vw;
+  }
+  div.blockA div.blogPost {
+    height: 20vw;
+  }
+  div.listOfBlogPosts {
+    width: 100%;
+    height: 120vw;
+  }
+  div.blogPost {
+    height: 25vw;
+  }
+  div.blogPostText {
+    width: 120vw;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+}

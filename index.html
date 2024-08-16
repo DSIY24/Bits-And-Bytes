@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <!--Icon Package-->
+    <script
+      src="https://kit.fontawesome.com/24f3dc567e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="mainPage">
+      <header>
+        <div class="logo">
+          <img src="Images/Bits And Bytes Logo.png" alt="" />
+        </div>
+        <div class="subpages">
+          <li>Home</li>
+          <li class="articleButton">Articles</li>
+          <ul class="dropdown-menu articles">
+            <li><a href="articles/Breadboard.html">How databases work</a></li>
+            <li><a href="articles/Breadboard.html">Breadboards ?</a></li>
+            <li>
+              <a href="articles/CrowdStirke - Vulnerabilities in windows.html"
+                >CrowdStirke Incident</a
+              >
+            </li>
+          </ul>
+          <li class="projectButton">On Going Projects</li>
+          <ul class="dropdown-menu projects">
+            <li><a href="elegooArduino/Setup.html">Ardunio</a></li>
+            <li><a href="bookBlog/bookBlog.html">Book Blog</a></li>
+            <li><a href="HavardCS50/Welcome.html">Harvard CS50</a></li>
+          </ul>
+        </div>
+        <div class="hamburgerMenu">
+          <h2 style="color: white">=</h2>
+        </div>
+      </header>
+
+      <nav class="offScreenMenu">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Projects</li>
+        </ul>
+      </nav>
+
+      <div class="closeMenu" style="font-size: 1.5em">X</div>
+
+      <div class="block">
+        <div class="text">
+          <h1>Bits And Bytes</h1>
+          <h4>
+            Welcome to "Bits and Bytes," my digital sanctuary where I
+            meticulously document my ongoing technological journey. Join me on
+            this exhilarating journey through the bits and bytes that form the
+            backbone of our interconnected world. Together, let's navigate the
+            complexities, celebrate the breakthroughs, and forge ahead into
+            uncharted territories of knowledge and innovation.
+          </h4>
+        </div>
+
+        <div class="image"></div>
+      </div>
+
+      <div class="split">
+        <div class="blockA">
+          <h2>Articles</h2>
+          <div class="articleContainer">
+            <!--Blog Posts-->
+            <div
+              class="blogPost"
+              onclick="window.location.href='articles/LEDs And Semi Conductors.html'"
+            >
+              <img src="Images/Semi Conductors.png" class="blogPostImage" />
+              <div class="blogPostText">
+                <h3>LEDs And Semi Conductors</h3>
+                <p>
+                  The different types of semi conductors and how they function
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="blogPost"
+              onclick="window.location.href='articles/CrowdStirke - Vulnerabilities in windows.html'"
+            >
+              <img src="Images/crowdstrike logo.png" class="blogPostImage" />
+              <div class="blogPostText">
+                <h3>Crowdstrike Incident</h3>
+                <p>Vulnerabilities within windows</p>
+              </div>
+            </div>
+
+            <div
+              class="blogPost"
+              onclick="window.location.href='articles/breadboard.html'"
+            >
+              <img src="Images/breadboard image.jpg" class="blogPostImage" />
+              <div class="blogPostText">
+                <h3>Breadboards ?</h3>
+                <p>Laytout and workings of breadboards</p>
+              </div>
+            </div>
+
+            <div
+              class="blogPost"
+              onclick="window.location.href='articles/How databases work.html'"
+            >
+              <img
+                src="https://media.istockphoto.com/id/1367766076/vector/database-storage-icon-vector-for-your-website-design-logo-app-ui-illustration.jpg?s=612x612&w=0&k=20&c=5-nzlAxbGQMw-lJcZc_P9QbHWXGb00ZLimhhwtr9rnc="
+                class="blogPostImage"
+              />
+              <div class="blogPostText">
+                <h3>How databases work</h3>
+                <p>The difference between flat file and relational databases</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Progect Posts-->
+        <div class="listOfBlogPosts">
+          <h2>On Going Projects</h2>
+
+          <div
+            class="blogPost"
+            onclick="window.location.href='elegooArduino/Setup.html'"
+          >
+            <img src="Images/Arduino Logo.png" class="blogPostImage" />
+            <div class="blogPostText">
+              <h3>Arduino</h3>
+              <p>Here I document my journey of building arduino projects</p>
+            </div>
+          </div>
+
+          <div
+            class="blogPost"
+            onclick="window.location.href='bookBlog/bookBlog.html'"
+          >
+            <img src="Images/Books Logo.jpg" class="blogPostImage" />
+            <div class="blogPostText">
+              <h3>Book Summaries</h3>
+              <p>I post the summaries I made on books that I have read</p>
+            </div>
+          </div>
+
+          <div
+            class="blogPost"
+            onclick="window.location.href='HavardCS50/Welcome.html'"
+          >
+            <img src="Images/Harvard CS50 Logo.jpg" class="blogPostImage" />
+            <div class="blogPostText">
+              <h3>CS50</h3>
+              <p>
+                Post my notes of the various lectures featured in the Harvard
+                CS50 course on edx
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="something">
+      <p>Something cool</p>
+      <p>&#x1F910;</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

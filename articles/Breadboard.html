@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="backButton">
+      <button id="prevButton" type="button"><-</button>
+      <h6></h6>
+    </div>
+
+    <div class="fowardButton">
+      <button id="nextButton" type="button">-></button>
+      <h6></h6>
+    </div>
+
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+
+    <div class="container">
+      <header>
+        <h1>Breadboards ?</h1>
+        <hr class="underline" />
+        <p class="subtitle">Layout and workings of bread boards</p>
+        <p class="meta-info">Date: July 25, 2024 | Author: Vanuja Ranawana</p>
+      </header>
+      <main>
+        <article>
+          <p>
+            The term “breadboard” harks back to a time when electronics were a
+            bit more... <i>hands on</i>. In the early days of electronics,
+            hobbyists and engineers would use literal breadboards—wooden boards
+            used for cutting and preparing bread—as makeshift platforms for
+            their circuits. The holes in these boards were used to hold
+            components and wires. This was less about hygiene and more about
+            necessity, as purpose-built circuit boards hadn’t yet been invented.
+          </p>
+          <img
+            src="https://www.hewlettpackardhistory.com/wp-content/uploads/2020/04/HPC-0900-1600-510-0002-768x948.jpg"
+            alt=""
+          />
+          <h6>
+            Early “breadboard” for electronics work, repurposed from actual
+            breadboards.
+          </h6>
+          <p>
+            Modern breadboards are made of plastic and features a grid of
+            interconnected holes that allow you to insert and connect various
+            electronic components without soldering. It retains the name because
+            of its origins, even though it’s evolved quite a bit.
+          </p>
+          <p>
+            Modern breadboards are a bit more sophisticated than their wooden
+            ancestors.
+          </p>
+          <img src="Images/breadBoardLayout.png" alt="" />
+          <p>
+            The central part of the breadboard is divided into columns of holes.
+            Each column is electrically connected, which means components placed
+            in the same column are connected together. Like the diagram depicts
+            holes along columns are connected together while holes along rows
+            are not. Holes can not be connected across the gap present in the
+            bread board.
+          </p>
+          <p>
+            However the holes present on either side of the bread board along
+            the "+" and "-" strips can connect across both rows and columns.
+            These are known as power rails and are long rows on the top and
+            bottom of the breadboard, usually marked with red and blue lines.
+            They’re used for distributing power to the various components on the
+            board.
+          </p>
+          <img src="Images/simpleBreadBoardCircut.png" alt="" />
+          <h6>Simple bread board circut featuring an LED and a resistor</h6>
+        </article>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

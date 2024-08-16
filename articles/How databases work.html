@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="backButton">
+      <button id="prevButton" type="button"><-</button>
+      <h6></h6>
+    </div>
+
+    <div class="fowardButton">
+      <button id="nextButton" type="button">-></button>
+      <h6></h6>
+    </div>
+
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+
+    <div class="container">
+      <header>
+        <h1>Databases and how they work ?</h1>
+        <hr class="underline" />
+        <p class="subtitle">
+          The difference between flat file and relational databases
+        </p>
+        <p class="meta-info">Date: July 28, 2024 | Author: Vanuja Ranawana</p>
+      </header>
+      <main>
+        <article>
+          <p>
+            A database is a structured collection of data that is stored and
+            managed in a systematic way. Databases allow users and applications
+            to efficiently store, retrieve, update, and manage data.
+          </p>
+          <p>
+            A flat file database is a type of database that stores data in a
+            single plain text format. (A singular table)
+          </p>
+          <p>
+            It contains records that are usually organized in a tabular format,
+            whereeach record on a separate line and fields separated usually by
+            commas (CSV Comma Seperated Values) or by tabs (TSV Tab Seperated
+            Values).
+          </p>
+          <p>
+            Take for example the database below which features a singular table
+            where data is aligned in rows and columns to store data
+          </p>
+          <img
+            src="https://study.com/cimages/multimages/16/hnet.com-image7041614564031918492.png"
+            alt=""
+          />
+          <p>
+            Flat file databases are mainly used for data storage and retrieval
+            and can perform basic data processing and manipulation tasks, such
+            as sorting and filtering, using scripts. It is used mainly in small
+            scale operations.
+          </p>
+
+          <p>
+            A relational database, unlike a flat file database contains many
+            tables with rows a columns where there are columns / fields linked
+            between tables.
+          </p>
+          <p>Take for example the relational database used in IMDb's website</p>
+          <img src="Images/IMDb database.png" alt="" />
+          <p>
+            In this case there is relationship between the id field in shows and
+            the show_id field in ratings. This means that there are
+            corresponding values in both columns.
+          </p>
+          <p>
+            However within a relational database there are many types of
+            relationships such as:
+          </p>
+          <ul>
+            <li>
+              <p>
+                One to one : When each record of the data only appears once in
+                both tables. Example a id of a particular movie only appears
+                once in the shows table and once in the rating table.
+              </p>
+            </li>
+            <li>
+              One to many: When a record can appear multiple times in one of the
+              tables. Example a id of a particular movie can only appear once in
+              the shows table (as a movie can only have one title, year, episode
+              ...) however if can appear multiple times in the genre table as
+              one movie can have multiple genres.
+            </li>
+          </ul>
+
+          <p>
+            Relational databases also include different types of keys that help
+            establish relationships between different fields in different
+            tables.
+          </p>
+
+          <ul>
+            <li>
+              Primary key: Is a unique identifier in a table where each value
+              within the column is unique.
+            </li>
+            <li>
+              Foreign key: The presence of the values that belong to another
+              tables primary key.
+            </li>
+          </ul>
+          <p>
+            Relational databases can retrieve data using SQL queries, which can
+            include filtering, sorting, and joining multiple tables due to the
+            ability to establish and manage relationships between different
+            datasets using foreign keys. It provides a higher level of data
+            protection compared to flat files and is used in large scale
+            operations
+          </p>
+        </article>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

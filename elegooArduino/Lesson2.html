@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="subPageStyle.css" />
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+
+    <div class="sideBar">
+      <div class="header">
+        <img src="Images/elegoo logo.png" alt="" />
+        <h2>Elegoo Super Starter Kit For Uno</h2>
+      </div>
+      <div>
+        <h2>Vanuja Ranawana</h2>
+        <h2><a href="Setup.html">Setup</a></h2>
+      </div>
+      <div class="dash"></div>
+      <div class="weeks">
+        <ul>
+          <li><a href="Lesson2.html">Lesson 2 Blink</a></li>
+          <li><a href="Lesson3.html">Lesson 3 LED</a></li>
+          <li><a href="">Lesson 4</a></li>
+        </ul>
+      </div>
+      <div class="dash"></div>
+      <div class="links">
+        <h2>
+          <a href="https://cs50.harvard.edu/x/2024/weeks/0/" target="_blank"
+            >Elegoo Offical Website</a
+          >
+        </h2>
+        <h2>Links to the Super Starter Kit PDF</h2>
+      </div>
+    </div>
+    <div class="page welcomePage">
+      <article id="67f13e42-a26f-4bfe-ad30-446f4a2e718e" class="page sans">
+        <header>
+          <h1 class="page-title">Lesson 2 Blink</h1>
+          <div class="dash"></div>
+        </header>
+        <div class="page-body">
+          <p id="5aa47a68-7e3e-427a-839d-9c64c7ac6728" class="">
+            Arduinos are programed using a variation of the C++ language; every
+            line of code should end with a ; were code is case sensitive ( where
+            an accidental inclusion or exclusion of capital letters will cause
+            the code to not work as intended ). Functions are typed in
+            camelCase.
+          </p>
+          <p id="7d0238ff-1599-4e7e-90a6-0423921ffc2e" class=""></p>
+          <p id="a97fa9c0-5b28-483e-856d-c19ec4628d2f" class="">
+            Once we have installed the Arduino program we can open the example
+            file Bare Minimum which should look like
+          </p>
+          <p id="dfd60a82-d5c3-4f3f-96d4-cb4e1dfb1dba" class=""></p>
+          <figure id="8c99d464-c1ac-4e3f-bd25-30793e3892ee" class="image">
+            <a
+              href="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled.png"
+              ><img
+                style="width: 541px"
+                src="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled.png"
+            /></a>
+          </figure>
+          <p>
+            In order to ensure that the computer is connected to the Arduino we
+            can go to tools / port and make sure that the Arduino uno is
+            selected.
+          </p>
+          <figure id="8c99d464-c1ac-4e3f-bd25-30793e3892ee" class="image">
+            <a
+              href="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 2.png"
+              ><img
+                style="width: 541px"
+                src="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 2.png"
+            /></a>
+          </figure>
+          <h1>Blink</h1>
+          <div class="dash"></div>
+          <p id="3da4c0d0-5a00-464e-8f33-d3e233d27939" class=""></p>
+          <p id="ec86ebf9-fdf7-4bdd-8421-d548cecd4f2a" class="">
+            Within the Arduino are pins in which we can attach various input or
+            output devices / circuits. However out of all the pins pin 13 is
+            unique as it is already connoted to an in-built LED. In this project
+            we will learn how to turn on and off this LED and make it blink in
+            fixed intervals.
+          </p>
+          <p id="465e4f0d-1ca9-447d-95b7-10201d1fc900" class=""></p>
+          <p id="8232e0fe-1f31-432a-878c-c1b5fae5aadd" class="">
+            First within the void setup() we have to type pinMode( 13, OUTPUT).
+            pinMode takes in two parameters, first is which pin is being
+            declared ( in this case it is pin 13 ). The second is whether we
+            want to use this pin as an INPUT or OUTPUT. Commands are case
+            sensitive.
+          </p>
+          <p id="560b5dab-fded-4a59-871b-924024df5cf3" class=""></p>
+          <p id="b2f210c6-e2ac-43e9-ac2f-7399f93c1b20" class="">
+            Once we have declared the pin we then have to turn on the LED, the
+            function we have to use is digitalWrite and write digitalWrite(13,
+            HIGH). 13 tells which pin to send the signal to, HIGH tells to set
+            the voltage high.
+          </p>
+          <p id="4aba66c1-4b89-4b26-99dc-b8a57b929b28" class=""></p>
+          <figure id="abdfa931-2830-4eb0-b45f-9f274f8ec48e" class="image">
+            <a
+              href="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 3.png"
+              ><img
+                style="width: 641px"
+                src="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 3.png"
+            /></a>
+          </figure>
+
+          <p id="a14fa692-02ba-4b09-83f5-32b68e559a1a" class="">
+            Then when we click the upload arrow on the top right it sends the
+            code to the Arduino which should then turn the LED on.
+          </p>
+          <p id="b2f4df7d-28cd-4d7a-bb99-fa428609ef28" class=""></p>
+          <p id="e9b686b4-7c91-4480-b555-dde73fcf9e43" class="">
+            We can then type LOW into the second parameter in digitalWrite to
+            turn off the LED.
+          </p>
+          <p id="22cf61b1-4078-494f-bf0f-5fe951ed0f25" class=""></p>
+          <figure id="2284c639-a022-4a9e-9b52-ed05179d7d5f" class="image">
+            <a
+              href="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 4.png"
+              ><img
+                style="width: 694.2000122070312px"
+                src="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 4.png"
+            /></a>
+          </figure>
+          <p id="09198096-1b7b-4135-a369-380fb9c1c2ab" class=""></p>
+          <p id="b74d5d07-49ae-4fd3-b1fc-27028cd65832" class="">
+            To make the LED blink we have to add a a delay function. delay only
+            take one perameter with it being time in milli seconds.
+          </p>
+          <p id="8de8cee6-1b2b-48d7-95ee-156b145a0c71" class=""></p>
+          <p id="8e97246c-a2e4-484d-a3eb-eba4d230a091" class="">
+            Hence the program to make it blink on and off every second is:
+          </p>
+          <p id="ce5f41af-d41a-43de-bda2-25bf5c745277" class=""></p>
+          <figure id="f8f86bd8-4018-4ebb-9679-a5c829a3a206" class="image">
+            <a
+              href="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 3.png"
+              ><img
+                style="width: 694.2000122070312px"
+                src="Images/Lesson 2 Blink 67f13e42a26f4bfead30446f4a2e718e/Untitled 3.png"
+            /></a>
+          </figure>
+          <p id="ebb585c1-b49f-4af4-bc19-f7d77649c53b" class=""></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="mobileSidebar" id="mobile-sidebar">
+      <div class="header">
+        <div>
+          <img src="Images/elegoo logo.png" alt="" />
+          <h2>Elegoo Super Starter Kit For Uno</h2>
+        </div>
+        <button class="menuButton" id="menu-button">Menu</button>
+      </div>
+
+      <div class="weeks">
+        <div class="dash"></div>
+        <h3></h3>
+        <ul>
+          <li><a href="Lesson2.html">Lesson 2 Blink</a></li>
+          <li><a href="">Lesson 3</a></li>
+          <li><a href="">Lesson 4</a></li>
+        </ul>
+
+        <ul>
+          <li>Elegoo Offical Website</li>
+        </ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

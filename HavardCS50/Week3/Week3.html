@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/HavardCS50/subPageStyle.css" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+    <div class="sideBar">
+      <div class="header">
+        <h1>Harvard CS50</h1>
+        <h2>My introduction into Computer Science</h2>
+      </div>
+      <div>
+        <h2>Vanuja Ranawana</h2>
+        <h2><a href="/HavardCS50/Welcome.html">Welcome</a></h2>
+      </div>
+      <div class="dash"></div>
+      <div class="weeks">
+        <ul>
+          <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+          <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+          <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+          <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+          <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+          <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+        </ul>
+      </div>
+      <div class="dash"></div>
+      <div class="links">
+        <h2>
+          <a href="https://cs50.harvard.edu/x/2024/weeks/0/" target="_blank"
+            >Harvard CS50 offical webiste</a
+          >
+        </h2>
+        <h2>Links to social meida</h2>
+      </div>
+    </div>
+
+    <div class="page welcomePage">
+      <h1>Week 3</h1>
+      <div class="dash"></div>
+
+      <p>Arrays are a method of storing data consecutively in memory so that it is easily accessible.</p>
+  
+      <p>Searching a set of data from left to right or right to left is known as a linear search.</p>
+      <p>For example, to determine if the number 50 is within an array using linear search, the computer must check each individual element and return a value of true or false.</p>
+  
+      <p>Here’s the pseudocode for a linear search:</p>
+      <pre><code>
+  For each element from left to right
+      If 50 is present within the element
+          Return true
+  Return false
+  </code></pre>
+  
+      <p>Binary search involves dividing and conquering a data set. If the data is arranged from smallest to largest, you start in the middle and check if the target data is larger or smaller than the middle value. If it’s larger, discard the left half and repeat the process on the right half, and vice versa.</p>
+  
+      <p>Here’s the pseudocode for binary search:</p>
+      <pre><code>
+  if no doors are left
+      Return false
+  If 50 is behind the middle door
+      Return true
+  Else if element behind middle door is < 50
+      search right
+  Else if element behind middle door > 50
+      search left
+  </code></pre>
+  
+      <p>Here’s how to implement a linear search function in C:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  
+  int main(void)
+  {
+      int numbers[] = { 3, 76, 45, 66, 58, 1, 50 };
+      int n = get_int("Number: ");
+  
+      for (int i = 0; i < 7; i++)
+      {
+          if (n == numbers[i])
+          {
+              printf("Found\n");
+              return 0;
+          }
+      }
+  
+      printf("Not Found\n");
+      return 1;
+  }
+  </code></pre>
+  
+      <p>This code iterates through the <code>numbers</code> array and checks if the integer <code>n</code> matches any element. If it does, it prints "Found"; otherwise, it prints "Not Found".</p>
+  
+      <p>Note that "Not Found" is printed only once since <code>return 0</code> ends the program execution early. A return value of 1 is used to indicate an unsuccessful search.</p>
+  
+      <p>Applying the linear search to find a string within an array will not work as intended because string comparison requires a different approach:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  #include <string.h>
+  
+  int main(void)
+  {
+      string words[] = { "Top hat", "Tank", "Car" };
+      string s = get_string("Word: ");
+  
+      for (int i = 0; i < 3; i++)
+      {
+          if (strcmp(s, words[i]) == 0)
+          {
+              printf("Found\n");
+              return 0;
+          }
+      }
+  
+      printf("Not Found\n");
+      return 1;
+  }
+  </code></pre>
+  
+      <p>To compare strings correctly, use the <code>strcmp</code> function from the <code>string.h</code> library. If <code>strcmp</code> returns 0, the two strings are equal.</p>
+  
+      <p>Here’s a simple phone book program that returns a number for a given name:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  #include <string.h>
+  
+  int main(void)
+  {
+      string names[] = { "Carter", "David", "John" };
+      string numbers[] = { "2", "5", "6" };
+      string word = get_string("Name: ");
+  
+      for (int i = 0; i < 3; i++)
+      {
+          if (strcmp(names[i], word) == 0)
+          {
+              printf("Found, number: %s\n", numbers[i]);
+              return 0;
+          }
+      }
+  
+      printf("Not Found\n");
+      return 1;
+  }
+  </code></pre>
+  
+      <p>Using separate arrays for names and numbers can be confusing as data grows. A more structured approach is to use a <code>struct</code>.</p>
+  
+      <p>A <code>struct</code> in C allows you to define a data structure that can hold different types of data. Here’s how to define and use a <code>struct</code> for a phone book:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  #include <string.h>
+  
+  typedef struct
+  {
+      string name;
+      string number;
+  } person;
+  
+  int main(void)
+  {
+      person people[3];
+      people[0].name = "Carter";
+      people[0].number = "2";
+      people[1].name = "David";
+      people[1].number = "5";
+      people[2].name = "John";
+      people[2].number = "6";
+  
+      string word = get_string("Name: ");
+  
+      for (int i = 0; i < 3; i++)
+      {
+          if (strcmp(people[i].name, word) == 0)
+          {
+              printf("Found, number: %s\n", people[i].number);
+              return 0;
+          }
+      }
+  
+      printf("Not Found\n");
+      return 1;
+  }
+  </code></pre>
+  
+      <p>Sorting transforms an unsorted list of values into a sorted one. Several algorithms can be used for sorting, including:</p>
+  
+      <p>Selection sort involves finding the smallest number in the list and swapping it with the first number, then repeating this process for the remaining elements.</p>
+      <p>Here’s the pseudocode for selection sort:</p>
+      <pre><code>
+  For i from 0 to n-1
+      Find the smallest number between numbers[i] and numbers[n-1]
+      Swap that number with numbers[i]
+  </code></pre>
+  
+      <p>Bubble sort repeatedly swaps adjacent elements to move the largest element to the top.</p>
+      <p>Here’s the pseudocode for bubble sort:</p>
+      <pre><code>
+  Repeat n - 1 times
+      For i from 0 to n - 2
+          If numbers[i] > numbers[i+1]
+              Swap the two numbers
+      If no swaps
+          Quit
+  </code></pre>
+  
+      <p>Recursion is a function that calls itself. Here’s an example of recursion used in binary search:</p>
+      <pre><code>
+  if no doors are left
+      Return false
+  If 50 is behind the middle door
+      Return true
+  Else if element behind middle door is < 50
+      Go to the middle of the right doors
+      Go to line 3 of the code
+  Else if element behind middle door > 50
+      Go to the middle of the left doors
+      Go to line 3 of the code
+  </code></pre>
+  
+      <p>Recursion can also be used to create patterns. For example, to form Mario-style steps:</p>
+      <pre><code>#include <stdio.h>
+  #include <cs50.h>
+  
+  void draw(int n);
+  
+  int main(void)
+  {
+      int height = get_int("Height: ");
+      draw(height);
+  }
+  
+  void draw(int n)
+  {
+      if (n <= 0)
+      {
+          return;
+      }
+  
+      draw(n - 1);
+  
+      for (int i = 0; i < n; i++)
+      {
+          printf("#");
+      }
+  
+      printf("\n");
+  }
+  </code></pre>
+
+  <div class="mobileSidebar" id="mobile-sidebar">
+    <div class="header">
+      <div>
+        <h1>Harvard CS50</h1>
+        <h2>My introduction into Computer Science</h2>
+      </div>
+      <button class="menuButton" id="menu-button">Menu</button>
+    </div>
+
+    <div class="weeks">
+      <div class="dash"></div>
+      <h3></h3>
+      <ul>
+        <li><a href="/HavardCS50/Week1/Week1.html">Week 1</a></li>
+        <li><a href="/HavardCS50/Week2/Week2.html">Week 2</a></li>
+        <li><a href="/HavardCS50/Week3/Week3.html">Week 3</a></li>
+        <li><a href="/HavardCS50/Week4/Week4.html">Week 4</a></li>
+        <li><a href="/HavardCS50/Week6/Week6.html">Week 6</a></li>
+        <li><a href="/HavardCS50/Week7/Week7.html">Week 7</a></li>
+      </ul>
+
+      <ul>
+        <li>Harvard CS50 offical website</li>
+      </ul>
+    </div>
+
+     
+    <script src="/HavardCS50/script.js"></script>
+  </body>
+</html>

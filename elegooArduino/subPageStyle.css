@@ -1,0 +1,211 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+:root {
+  --font-size: 1.2rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.3rem;
+}
+.mobileSidebar {
+  display: none;
+  background-color: rgb(3, 65, 126);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 20vh;
+  left: 0;
+  transition: 0.2s;
+  padding: 3vw;
+}
+.mobileSidebar.active {
+  background-color: rgb(0, 36, 72);
+  height: 40vh;
+}
+.mobileSidebar img {
+  width: 200px;
+  margin-bottom: 2vw;
+}
+.mobileSidebar button {
+  width: 100px;
+  height: 25px;
+  margin-bottom: 2.5vh;
+}
+.mobileSidebar .header {
+  height: 18vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mobileSidebar div.weeks .dash {
+  margin-bottom: 2.5vh;
+}
+.mobileSidebar div.weeks {
+  display: none;
+  list-style: none;
+}
+.mobileSidebar.active div.weeks {
+  display: inline;
+}
+.mobileSidebar div.weeks ul {
+  list-style: none;
+  margin-bottom: 2.5vh;
+}
+.mobileSidebar div.weeks ul li {
+  font-size: 1rem;
+}
+.mobileSidebar div.weeks a {
+  text-decoration: none;
+}
+
+div.something {
+  width: 15vw;
+  height: 5vh;
+  background-color: blue;
+  padding: 0rem 2rem 0rem 2rem;
+  position: fixed;
+  z-index: 100;
+  bottom: 0px;
+  right: 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 1.5vw;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+div.something button {
+  width: 40px;
+  height: 30px;
+}
+div.something button:nth-child(1) {
+  font-size: 12px;
+}
+div.something button:nth-child(3) {
+  font-size: 20px;
+}
+
+/* Code to formate the sidebar */
+div.sideBar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 22vw;
+  background-color: rgb(3, 65, 126);
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+  padding: 2vw;
+  overflow-y: scroll;
+}
+
+h1,
+h2,
+li,
+a,
+p {
+  color: aliceblue;
+}
+div.sideBar .header h1 {
+  margin-bottom: 2.5vh;
+}
+div.sideBar .header img {
+  width: 18vw;
+  margin-bottom: 2vh;
+}
+div.dash {
+  width: 100%;
+  height: 1px;
+  padding: 0.5px;
+  background-color: bisque;
+}
+div.sideBar div.weeks ul {
+  list-style: none;
+}
+div.sideBar div.weeks ul li {
+  margin-bottom: 2vh;
+  font-size: 1.2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+div.sideBar a:hover,
+div.sideBar div.weeks ul li:hover {
+  color: beige;
+}
+div.sideBar div.links h2 {
+  margin-bottom: 3vh;
+}
+div.sideBar a {
+  text-decoration: none;
+}
+
+/*Code to formate the page*/
+div.page {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 22vw;
+  background-color: #212529;
+  width: 78vw;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 2vw;
+}
+div.page .dash {
+  height: 1px;
+  margin: 2vh 0px 2vh 0px;
+}
+div.page img {
+  width: 50%;
+  margin-bottom: 1.5em;
+}
+div.page ul img {
+  width: 30%;
+  margin-bottom: 1.5em;
+}
+div.page p {
+  font-size: var(--font-size);
+  margin-bottom: 1.5em;
+}
+div.page ul {
+  font-size: var(--font-size);
+  margin-left: 2.5vw;
+  margin-bottom: 1.2em;
+}
+div.page ul li {
+  margin-bottom: 0.5em;
+}
+/* Code to formate the website when the screen size is below 800px */
+
+@media (max-width: 1000px) {
+  .mobileSidebar {
+    display: block;
+  }
+  div.sideBar {
+    display: none;
+  }
+  div.page {
+    top: 20vh;
+    bottom: 0;
+    left: 0;
+    background-color: #212529;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 2vw;
+    transition: 0.2s;
+  }
+  div.page.active {
+    top: 40vh;
+  }
+}

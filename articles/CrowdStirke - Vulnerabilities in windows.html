@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article Page</title>
+    <link rel="stylesheet" href="style.css" />
+    />
+  </head>
+  <body>
+    <div class="backButton">
+      <button id="prevButton" type="button"><-</button>
+      <h6></h6>
+    </div>
+
+    <div class="fowardButton">
+      <button id="nextButton" type="button">-></button>
+      <h6></h6>
+    </div>
+
+    <div class="something">
+      <button id="decrease-font-size">A</button>
+      <button id="reset-font-size">R</button>
+      <button id="increase-font-size">A</button>
+    </div>
+
+    <div class="container">
+      <header>
+        <h1>Crowdstirke Incident</h1>
+        <hr class="underline" />
+        <p class="subtitle">Vulnerabilities within windows</p>
+        <p class="meta-info">Date: July 23, 2024 | Author: Vanuja Ranawana</p>
+      </header>
+      <main>
+        <article>
+          <p>
+            On July 19th, a massive disruption affected about 8.5 million
+            Windows systems due to a problematic update from the cybersecurity
+            firm CrowdStrike. This shut down airports, rendered hospitals unable
+            to treat patients, lefts banks unable to perform money transactions,
+            etc. <br />
+            The issue stemmed from a software update crashing the entire
+            operating system. This happened because the update was applied at
+            the kernel level, which is a critical part of the operating system
+            responsible for core functions like managing memory and
+            communicating with hardware.
+          </p>
+          <img
+            src="https://imageio.forbes.com/specials-images/imageserve/669a22a12003e0e05c4299ec/Airport-terminal-displaying-blue-screen-of-death/960x0.jpg?format=jpg&width=960"
+            alt=""
+          />
+          <h6>
+            * Example of a crashed windows system at an airport terminal due to
+            crowdstike software
+          </h6>
+          <h2>What is a kernel ?</h2>
+          <p>
+            Operating systems use a ring system to bifurcate code into two
+            distinct ring, ring 1 is dedicated towards the user where the
+            applications run. While ring 0 is dedicated towards the operating
+            system. Here important tasks such as talking to the hardware,
+            managing memory, scheduling threads and other core functions that
+            the operating system provides are stored. Therefore you can get a
+            sense of how much control is within the kernel making i very
+            redistricted.
+          </p>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/1200px-Priv_rings.svg.png"
+            alt="Example Image"
+          />
+          <h6>* Operating systems rings shown form least to most important</h6>
+          <p>
+            This brings about a difference when executing faulty code, when code
+            in the application crashes the application itself seizes to not
+            function, however when code within the kernel crashes the entire
+            operating system crashes. Now you can get a sense of what occurred.
+          </p>
+
+          <p>
+            You may be questioning Why does Crowdstirke have access to their
+            kernel if the kernel has such implications over the system. Well
+            usually only code that has to be included such as the heat manager,
+            thread schedule (A component that decides which threads to run,
+            pause or stop) and device drivers that need access to the hardware
+            are stored within the kernel. <br />
+            That's where Crowdstrike comes into play with their falcon sensor
+            and while it is not termed as an anti virus it can be simplified as
+            anti malware for servers. Without going to in detail to what exactly
+            the Crowdstike software does, suffice to say it needed to be in the
+            kernel to operate
+          </p>
+          <h2>Why was Crowdstike given access to the kernel ?</h2>
+          <p>
+            Now Microsoft didn't blindly hand them access to the kernel ring,
+            companies need to obtain a certificate known as WHQL certification
+            which stands for Windows Quality Labs were the driver is thoroughly
+            tested by the company themselves and Microsoft to ensure that it is
+            compatible with the windows operating system.
+          </p>
+          <img
+            src="https://www.majorgeeks.com/content/file/1413_logo-win_comp.jpg"
+            alt=""
+          />
+          <h6>* Windows Quality Labs Certificate throughout the years</h6>
+          <p>
+            However crowdstike being an anti malware company needs to release
+            updates instantaneously against new and emerging malware that
+            frequently pop up. Hence it would be inefficient for them to undergo
+            this certification every thing they update their software. Thus,
+            according to my understanding, they update the software through
+            updating files that are processed by the driver but not actually
+            included in them, meaning now there is unsigned code that hasn't
+            been fully tested running within kernel mode. <br />
+            While we don't know that exactly was the bug that caused the crash
+            within the crowdstrike driver we know that it caused that entire
+            kernel and hence operating system to crash along with it.
+          </p>
+          <h2>What can we learn from the incident ?</h2>
+          <p>
+            Your first reaction may be, "Why do so many windows devices have
+            Crowdstrike installed ?" Well public mega cooperations are under
+            large pressure to secure their data from hackers and other 3rd
+            parties, however a company that has no part in the technology sector
+            won't just hire a team of 100 cyber security weirdos. Instead they
+            pay a company like Crowdstrike a few million dollars a year to
+            handle cyber security. This lead to one company having access to the
+            kernel of most fortune 500 companies.
+          </p>
+          <p>
+            We need to shift our attention from the number of crashes to why the
+            crash took place in the beginning. From this crash we can deduce
+            that the crowd strike software that handles the updates isn't
+            resilient with it have inadequate error checking <br />
+            Hence the main reason for the large outage falls within the company
+            itself and not on the individual programmer. Crowdstirke should have
+            put out better quality control for a software that generates
+            millions per year.
+          </p>
+        </article>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
